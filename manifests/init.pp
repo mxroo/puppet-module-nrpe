@@ -145,7 +145,7 @@ class nrpe (
       $default_nrpe_user                        = 'brew'
       $default_nrpe_group                       = 'staff'
       $default_include_dir                      = '/usr/local/etc/nrpe.d'
-    }  
+    }
     default: {
       fail("nrpe supports Darwin, Debian, RedHat, Suse, Solaris and Ubuntu. Detected osfamily is <${::osfamily}>.")
     }
