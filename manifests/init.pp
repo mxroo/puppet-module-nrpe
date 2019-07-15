@@ -131,8 +131,23 @@ class nrpe (
         }
       }
     }
+    'Darwin': {
+      $default_service_name                     = 'nrpe'
+      $default_nrpe_package                     = 'nrpe'
+      $default_nrpe_package_adminfile           = undef
+      $default_nrpe_package_source              = brew
+      $default_nagios_plugins_package           = 'nagios-plugins'
+      $default_nagios_plugins_package_adminfile = undef
+      $default_nagios_plugins_package_source    = brew
+      $default_nrpe_config                      = '/usr/local/etc/nrpe.cfg'
+      $default_libexecdir                       = '/usr/local/Cellar/nrpe/3.2.1/bin'
+      $default_pid_file                         = '/usr/local/var/run/nrpe.pid'
+      $default_nrpe_user                        = 'brew'
+      $default_nrpe_group                       = 'staff'
+      $default_include_dir                      = '/usr/local/etc/nrpe.d'
+    }  
     default: {
-      fail("nrpe supports Debian, RedHat, Suse, Solaris and Ubuntu. Detected osfamily is <${::osfamily}>.")
+      fail("nrpe supports Darwin, Debian, RedHat, Suse, Solaris and Ubuntu. Detected osfamily is <${::osfamily}>.")
     }
   }
 
